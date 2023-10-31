@@ -3,6 +3,7 @@ import './App.css'
 import Nav from './Components/Nav/Nav'
 import { getLatestNewsByCategory, getTopHeadlinesByCategory } from './apiCalls'
 import Headlines from './Components/Headlines/Headlines'
+import Latest from './Components/Latest/Latest'
 
 function App() {
   const [headlines, setHeadlines] = useState([])
@@ -43,8 +44,10 @@ function App() {
   return (
     <div id='App'>
       <Nav setNews={setNews} />
-      <Headlines headlines={headlines} />
-      {/* <Latest latest={latest} /> */}
+      <main>
+        <Headlines headlines={headlines} />
+        <Latest latest={latest} />
+      </main>
     </div>
   )
 }

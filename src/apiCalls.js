@@ -16,7 +16,7 @@ export async function getLatestNewsByCategory(category) {
   // const response = await fetch(url)
   // if (response.ok) {
   //   const data = await response.json()
-    return mockData.articles.slice(0, 10)
+    return mockData.articles.slice(4, 14)
   // } else {
   //   throw new Error('Error fetching news')
   // }

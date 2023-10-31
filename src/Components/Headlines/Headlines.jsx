@@ -1,22 +1,10 @@
-// make link take user to artcile in new tab
 import './Headlines.css'
+
+import { convertDate } from '../../utils.js'
 
 import PropTypes from 'prop-types'
 
 export default function Headlines({ headlines }) {
-
-  function convertDate(date) {
-    // from 2021-07-08T14:00:00Z to 31 Oct 2023
-    const dateArr = date.split('-')
-    const year = dateArr[0]
-    const month = dateArr[1]
-    const day = dateArr[2].split('T')[0]
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-      'Oct', 'Nov', 'Dec']
-    const monthName = months[parseInt(month) - 1]
-    return `${day} ${monthName} ${year}`
-  }
-
   return (
     <section className='headlines-container'>
       <h2>Top Headlines</h2>
