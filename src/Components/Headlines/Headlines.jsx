@@ -10,7 +10,7 @@ export default function Headlines({ headlines }) {
       <h2>Top Headlines</h2>
       <div className="articles-container">
         {headlines.map(headline => (
-          <article className='headline-article' key={headline.source.id}>
+          <article className='headline-article' key={headline.title}>
             <p className="headline-date">{convertDate(headline.publishedAt)}</p>
             <img className='headline-img' src={headline.urlToImage}></img>
             <h3 className='headline-title'>{headline.title}</h3>
