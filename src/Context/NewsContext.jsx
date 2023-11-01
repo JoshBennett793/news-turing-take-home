@@ -8,6 +8,7 @@ export function NewsProvider({ children }) {
   const [headlines, setHeadlines] = useState([])
   const [latest, setLatest] = useState([])
   const [currentCategory, setCurrentCategory] = useState('')
+  const [singleArticle, setSingleArticle] = useState({})
 
   async function setNews() {
     const headlines = await getTopHeadlinesByCategory(currentCategory)
@@ -30,6 +31,8 @@ export function NewsProvider({ children }) {
     setLatest,
     currentCategory,
     setCurrentCategory,
+    singleArticle,
+    setSingleArticle,
     setNews
   }
 
