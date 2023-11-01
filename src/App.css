@@ -1,9 +1,9 @@
 #root {
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
 #App {
   display: grid;
-  grid-template-columns: .5fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
 }

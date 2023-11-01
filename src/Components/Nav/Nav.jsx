@@ -15,7 +15,7 @@ export default function Nav() {
 
   return (
     <nav className='sidebar-nav'>
-      <ul>
+      <ul className='nav'>
         {categories.map(category => (
           <button
             className='nav-item'
