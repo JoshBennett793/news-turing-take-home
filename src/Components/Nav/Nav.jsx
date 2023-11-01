@@ -1,37 +1,31 @@
-// make 5 more nav components for these topics: entertainments, general, health, science, sports
+import { useNavigate } from 'react-router-dom'
+import './Nav.css'
 
-import './Nav.css';
+export default function Nav() {
+  const navigate = useNavigate()
+  const categories = [
+    'business',
+    'entertainment',
+    'general',
+    'health',
+    'science',
+    'sports',
+    'technology'
+  ]
 
-import PropTypes from 'prop-types';
-
-export default function Nav({ setNews }) {
   return (
     <nav className='sidebar-nav'>
-      <button className='nav-item' onClick={() => setNews('business')}>
-        Business
-      </button>
-      <button className='nav-item' onClick={() => setNews('entertainment')}>
-        Entertainment
-      </button>
-      <button className='nav-item' onClick={() => setNews('general')}>
-        General
-      </button>
-      <button className='nav-item' onClick={() => setNews('health')}>
-        Health
-      </button>
-      <button className='nav-item' onClick={() => setNews('science')}>
-        Science
-      </button>
-      <button className='nav-item' onClick={() => setNews('sports')}>
-        Sports
-      </button>
-      <button className='nav-item' onClick={() => setNews('technology')}>
-        Tech
-      </button>
+      <ul className='nav'>
+        {categories.map(category => (
+          <button
+            className='nav-item'
+            key={category}
+            onClick={() => navigate(`/${category}`)}
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </button>
+        ))}
+      </ul>
     </nav>
-  );
+  )
 }
-
-Nav.propTypes = {
-  setNews: PropTypes.func.isRequired
-};

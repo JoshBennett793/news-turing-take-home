@@ -1,52 +1,26 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+
 import './App.css'
+
 import Nav from './Components/Nav/Nav'
-import { getLatestNewsByCategory, getTopHeadlinesByCategory } from './apiCalls'
-import Headlines from './Components/Headlines/Headlines'
-import Latest from './Components/Latest/Latest'
+import News from './Components/News'
 
 function App() {
-  const [headlines, setHeadlines] = useState([])
-  const [latest, setLatest] = useState([])
-
-  async function getHeadlines(category = 'technology') {
-    try {
-      const headlines = await getTopHeadlinesByCategory(category)
-      console.log(headlines)
-      return headlines
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  async function getLatest(category = 'technology') {
-    try {
-      const latest = await getLatestNewsByCategory(category)
-      console.log(latest)
-      return latest
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  async function setNews(category) {
-    const headlines = await getHeadlines(category)
-    setHeadlines(headlines)
-
-    const latest = await getLatest(category)
-    setLatest(latest)
-  }
+  const navigate = useNavigate()
 
   useEffect(() => {
-    setNews()
+    navigate('/technology')
   }, [])
 
   return (
     <div id='App'>
-      <Nav setNews={setNews} />
+      <Nav />
       <main>
-        <Headlines headlines={headlines} />
-        <Latest latest={latest} />
+        <Routes>
+          <Route path='/' element={<News />}></Route>
+          <Route path='/:category' element={<News />}></Route>
+        </Routes>
       </main>
     </div>
   )

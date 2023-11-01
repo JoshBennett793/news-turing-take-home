@@ -1,17 +1,18 @@
 import './Headlines.css'
+import { useNews } from '../../Context/NewsContext'
 
-import { convertDate } from '../../utils.js'
+export default function Headlines() {
+  const { headlines, currentCategory } = useNews()
+  const category =
+    currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1)
 
-import PropTypes from 'prop-types'
-
-export default function Headlines({ headlines }) {
   return (
     <section className='headlines-container'>
-      <h2>Top Headlines</h2>
-      <div className="articles-container">
+      <h2>Top Headlines In {category}</h2>
+      <div className='articles-container'>
         {headlines.map(headline => (
-          <article className='headline-article' key={headline.source.id}>
-            <p className="headline-date">{convertDate(headline.publishedAt)}</p>
+          <article className='headline-article' key={headline.title}>
+            <p className='headline-date'>{headline.publishedAt}</p>
             <img className='headline-img' src={headline.urlToImage}></img>
             <h3 className='headline-title'>{headline.title}</h3>
             <p>{headline.description}</p>
@@ -20,8 +21,4 @@ export default function Headlines({ headlines }) {
       </div>
     </section>
   )
-}
-
-Headlines.propTypes = {
-  headlines: PropTypes.array.isRequired
 }
