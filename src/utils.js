@@ -21,3 +21,18 @@ export function convertDate(date) {
   const monthName = months[parseInt(month) - 1]
   return `${day} ${monthName} ${year}`
 }
+
+export function cleanData(data) {
+  data = data.filter(article => article.title !== '[Removed]')
+  return data.map(article => {
+    return {
+      id: article.id,
+      title: article.title,
+      description: article.description,
+      url: article.url,
+      urlToImage: article.urlToImage,
+      publishedAt: convertDate(article.publishedAt),
+      source: article.source.name
+    }
+  })
+}
