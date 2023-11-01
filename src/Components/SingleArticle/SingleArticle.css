@@ -1,0 +1,7 @@
+.single-article-container {
+  width: 100%;
+
+  .single-article-image {
+    width: 80%;
+  }
+}

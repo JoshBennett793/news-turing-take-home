@@ -5,6 +5,7 @@ import './App.css'
 
 import Nav from './Components/Nav/Nav'
 import News from './Components/News'
+import SingleArticle from './Components/SingleArticle/SingleArticle'
 
 function App() {
   const navigate = useNavigate()
@@ -20,6 +21,10 @@ function App() {
         <Routes>
           <Route path='/' element={<News />}></Route>
           <Route path='/:category' element={<News />}></Route>
+          <Route
+            path='/:category/:branch/article/:title'
+            element={<SingleArticle />}
+          ></Route>
         </Routes>
       </main>
     </div>

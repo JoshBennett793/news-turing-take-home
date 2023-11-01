@@ -1,8 +1,10 @@
 import './Headlines.css'
 import { useNews } from '../../Context/NewsContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function Headlines() {
-  const { headlines, currentCategory } = useNews()
+  const navigate = useNavigate()
+  const { headlines, currentCategory, setSingleArticle } = useNews()
   const category =
     currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1)
 
@@ -11,7 +13,14 @@ export default function Headlines() {
       <h2>Top Headlines In {category}</h2>
       <div className='articles-container'>
         {headlines.map(headline => (
-          <article className='headline-article' key={headline.title}>
+          <article
+            className='headline-article'
+            key={headline.title}
+            onClick={() => {
+              setSingleArticle(headline)
+              navigate(`headline/article/${headline.title}`)
+            }}
+          >
             <p className='headline-date'>{headline.publishedAt}</p>
             <img className='headline-img' src={headline.urlToImage}></img>
             <h3 className='headline-title'>{headline.title}</h3>
