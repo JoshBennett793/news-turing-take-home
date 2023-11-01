@@ -18,7 +18,7 @@ export default function Headlines() {
             key={headline.title}
             onClick={() => {
               setSingleArticle(headline)
-              navigate(`article/${headline.title}/${headline.author}`)
+              navigate(`headline/article/${headline.title}`)
             }}
           >
             <p className='headline-date'>{headline.publishedAt}</p>

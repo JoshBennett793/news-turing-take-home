@@ -5,9 +5,11 @@ import { useNews } from '../../Context/NewsContext'
 import './SingleArticle.css'
 
 export default function SingleArticle() {
-  const { title, author } = useParams()
-  const { headlines } = useNews()
-  const article = findArticle(title, author, headlines)
+  const { branch, title } = useParams()
+  const { headlines, latest } = useNews()
+
+  const headlinesOrLatest = branch === 'headline' ? headlines : latest
+  const article = findArticle(title, headlinesOrLatest)
 
   return (
     <>

@@ -22,7 +22,7 @@ function App() {
           <Route path='/' element={<News />}></Route>
           <Route path='/:category' element={<News />}></Route>
           <Route
-            path='/:category/article/:title/:author'
+            path='/:category/:branch/article/:title'
             element={<SingleArticle />}
           ></Route>
         </Routes>

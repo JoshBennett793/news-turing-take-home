@@ -23,25 +23,23 @@ export function convertDate(date) {
 }
 
 export function cleanData(data) {
-  data = data.filter(article => article.title !== '[Removed]')
-  return data.map(article => {
-    return {
-      id: article.id,
-      author: article.author,
-      title: article.title,
-      description: article.description,
-      url: article.url,
-      urlToImage: article.urlToImage,
-      publishedAt: convertDate(article.publishedAt),
-      content: article.content,
-      source: article.source.name
-    }
-  })
+  return data
+    .filter(article => article.title !== '[Removed]')
+    .map(article => {
+      return {
+        id: article.id,
+        author: article.author,
+        title: article.title,
+        description: article.description,
+        url: article.url,
+        urlToImage: article.urlToImage,
+        publishedAt: convertDate(article.publishedAt),
+        content: article.content,
+        source: article.source.name
+      }
+    })
 }
 
-export function findArticle(title, author, data) {
-  const article = data.find(article => {
-    return article.title === title && article.author === author
-  })
-  return article
+export function findArticle(title, data) {
+  return data.find(article => article.title === title)
 }
