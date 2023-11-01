@@ -10,7 +10,6 @@ export function NewsProvider({ children }) {
   const [currentCategory, setCurrentCategory] = useState('')
 
   async function setNews() {
-    console.log('currentCategory each time setNews is invoked', currentCategory)
     const headlines = await getTopHeadlinesByCategory(currentCategory)
     const cleanHeadlines = cleanData(headlines).slice(0, 4)
     setHeadlines(cleanHeadlines)
