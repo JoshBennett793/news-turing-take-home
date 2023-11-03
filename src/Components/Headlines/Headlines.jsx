@@ -22,7 +22,11 @@ export default function Headlines() {
             }}
           >
             <p className='headline-date'>{headline.publishedAt}</p>
-            <img className='headline-img' src={headline.urlToImage}></img>
+            <img
+              className='headline-img'
+              src={headline.urlToImage}
+              alt='Image provided by newsapi.org'
+            ></img>
             <h3 className='headline-title'>{headline.title}</h3>
             <p>{headline.description}</p>
           </article>

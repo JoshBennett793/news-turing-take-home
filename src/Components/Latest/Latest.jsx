@@ -28,6 +28,7 @@ export default function Latest() {
               }}
               className='latest-img'
               src={article.urlToImage}
+              alt='Image provided by newsapi.org'
             ></img>
             <div>
               <p className='latest-date'>{article.publishedAt}</p>

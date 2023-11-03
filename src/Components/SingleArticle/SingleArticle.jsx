@@ -6,9 +6,16 @@ import './SingleArticle.css'
 
 export default function SingleArticle() {
   const { branch, title } = useParams()
+  console.log('branch', branch);
+  console.log('title', title);
   const { headlines, latest } = useNews()
+  console.log('headlines', headlines);
+  console.log('latest', latest);
   const headlinesOrLatest = branch === 'headline' ? headlines : latest
+  console.log('which branch:', headlinesOrLatest);
   const article = findArticle(title, headlinesOrLatest)
+  console.log(article);
+  console.log(article.urlToImage);
 
   return (
     <>
