@@ -1,6 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { getLatestNewsByCategory, getTopHeadlinesByCategory } from '../apiCalls'
-import { cleanData } from '../utils'
 
 const NewsContext = createContext(null)
 
@@ -14,16 +13,9 @@ export function NewsProvider({ children }) {
     const headlines = await getTopHeadlinesByCategory(category)
     const latest = await getLatestNewsByCategory(category)
 
-    const cleanHeadlines = cleanData(headlines).slice(0, 4)
-    const cleanLatest = cleanData(latest).slice(0, 10)
-
-    setHeadlines(cleanHeadlines)
-    setLatest(cleanLatest)
+    setHeadlines(headlines)
+    setLatest(latest)
   }
-
-  // useEffect(() => {
-  //   setNews(currentCategory)
-  // }, [currentCategory])
 
   const value = {
     headlines,
