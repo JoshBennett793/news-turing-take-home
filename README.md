@@ -10,6 +10,30 @@
 
 ![single-ui](https://github.com/JoshBennett793/news-turing-take-home/assets/100454651/70289951-0f9a-471f-84a4-690ab88dfcc1)
 
+## Setup Instructions
+
+#### Clone this repo to your local machine by running:
+`git@github.com:JoshBennett793/rancid-tomatillos.git`
+
+#### Cd into the root directory 
+`cd rancid-tomatillos`
+
+#### Install dependencies 
+`npm install`
+
+#### Run the start script
+`npm run dev`
+
+#### You will see some output in your terminal. Some of that output should look something like this:
+```bash
+VITE v4.4.9  ready in 300 ms
+  ➜  Local:   http://127.0.0.1:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+```
+
+#### Go to http://127.0.0.1:5173/ in your browser to view the code running in the browser
+
 ## Snippets
 
 #### Clean up function
