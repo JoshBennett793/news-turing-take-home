@@ -48,4 +48,13 @@ describe('Main news view', () => {
       .should('be.visible')
       .and('contain', 'Latest News')
   })
+
+  it('Renders correct number of articles', () => {
+    cy.get('.headlines-container .articles-container')
+      .children()
+      .should('have.length', 4)
+    cy.get('.latest-container .latest-articles-container')
+      .children()
+      .should('have.length', 10)
+  })
 })
