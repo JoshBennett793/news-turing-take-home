@@ -7,7 +7,6 @@ import './SingleArticle.css'
 export default function SingleArticle() {
   const { branch, title } = useParams()
   const { headlines, latest } = useNews()
-
   const headlinesOrLatest = branch === 'headline' ? headlines : latest
   const article = findArticle(title, headlinesOrLatest)
 
@@ -23,7 +22,12 @@ export default function SingleArticle() {
         <p className='single-article-author'>By {article.author}</p>
         <p className='single-article-source'>{article.source}</p>
         <p className='single-article-date'>{article.publishedAt}</p>
-        <p className='single-article-content'>{article.content}</p>
+        <p className='single-article-content'>
+          {article.content}
+          <a href={article.url} target='_blank' rel='noopener noreferrer'>
+            read more
+          </a>
+        </p>
       </article>
     </>
   )

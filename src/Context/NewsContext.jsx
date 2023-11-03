@@ -10,19 +10,20 @@ export function NewsProvider({ children }) {
   const [currentCategory, setCurrentCategory] = useState('')
   const [singleArticle, setSingleArticle] = useState({})
 
-  async function setNews() {
-    const headlines = await getTopHeadlinesByCategory(currentCategory)
-    const cleanHeadlines = cleanData(headlines).slice(0, 4)
-    setHeadlines(cleanHeadlines)
+  async function setNews(category) {
+    const headlines = await getTopHeadlinesByCategory(category)
+    const latest = await getLatestNewsByCategory(category)
 
-    const latest = await getLatestNewsByCategory(currentCategory)
+    const cleanHeadlines = cleanData(headlines).slice(0, 4)
     const cleanLatest = cleanData(latest).slice(0, 10)
+
+    setHeadlines(cleanHeadlines)
     setLatest(cleanLatest)
   }
 
-  useEffect(() => {
-    setNews()
-  }, [currentCategory])
+  // useEffect(() => {
+  //   setNews(currentCategory)
+  // }, [currentCategory])
 
   const value = {
     headlines,

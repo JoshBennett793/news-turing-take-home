@@ -24,7 +24,14 @@ export function convertDate(date) {
 
 export function cleanData(data) {
   return data
-    .filter(article => article.title !== '[Removed]')
+    .filter(
+      article =>
+        article.title !== '[Removed]' &&
+        article.content &&
+        article.publishedAt &&
+        article.urlToImage &&
+        article.url
+    )
     .map(article => {
       return {
         id: article.id,
@@ -33,8 +40,10 @@ export function cleanData(data) {
         description: article.description,
         url: article.url,
         urlToImage: article.urlToImage,
-        publishedAt: convertDate(article.publishedAt),
-        content: article.content,
+        publishedAt: article.publishedAt.includes('T')
+          ? convertDate(article.publishedAt)
+          : article.publishedAt,
+        content: article.content.replace(/\[\+[0-9]+\schars\]/g, ''),
         source: article.source.name
       }
     })
