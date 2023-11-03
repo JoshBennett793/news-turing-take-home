@@ -39,4 +39,13 @@ describe('Main news view', () => {
       .and('contain', 'Sports')
       .and('contain', 'Technology')
   })
+
+  it('Renders correct headers', () => {
+    cy.get('.headlines-container h2')
+      .should('be.visible')
+      .and('contain', 'Top Headlines')
+    cy.get('.latest-container h2')
+      .should('be.visible')
+      .and('contain', 'Latest News')
+  })
 })
