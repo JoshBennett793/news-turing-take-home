@@ -5,14 +5,11 @@ import { useNews } from '../Context/NewsContext'
 import { useEffect } from 'react'
 
 export default function News() {
-  const { setCurrentCategory } = useNews()
+  const { currentCategory, setCurrentCategory, setNews } = useNews()
   const { category } = useParams()
 
   useEffect(() => {
-    setCurrentCategory(category)
-  }, [])
-
-  useEffect(() => {
+    setNews(category)
     setCurrentCategory(category)
   }, [category])
 
