@@ -99,6 +99,7 @@ const categories = [
 
 - Router tends to be a tricky one to implement without at least a little bit of trouble. I'm more comfortable now than ever before using different params in the url and making dynamic network requests based on params.
 
+- Mitigating side-effects in React is consistently a challenge because the configuration is slightly different each time and debugging can be time-consuming
 
 ## Wins
 
