@@ -15,7 +15,6 @@ export default function News() {
 
   return (
     <>
-      <p>current category {currentCategory}</p>
       <Headlines />
       <Latest />
     </>
